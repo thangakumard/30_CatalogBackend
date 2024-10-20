@@ -33,12 +33,12 @@ namespace Catalog.Application.DTOs.Conversions
             {
                 List<ProductDto> _products = products.Select(p => new ProductDto()
                 {
-                    ProductId = product.ProductId,
-                    Sku = product.Sku,
-                    ProductDescription = product.ProductDescription,
-                    ProductCategory = product.ProductCategory,
-                    Quantity = product.Quantity,
-                    Price = product.Price
+                    ProductId = p.ProductId,
+                    Sku = p.Sku,
+                    ProductDescription = p.ProductDescription,
+                    ProductCategory = p.ProductCategory,
+                    Quantity = p.Quantity,
+                    Price = p.Price
                 }
                 ).ToList();
                 return (null, _products);

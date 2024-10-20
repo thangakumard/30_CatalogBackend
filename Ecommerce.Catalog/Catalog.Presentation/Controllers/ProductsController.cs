@@ -71,18 +71,17 @@ namespace Catalog.Presentation.Controllers
             return response.Success ? Ok(response) : BadRequest(response);
         }
 
-        [HttpDelete]
-        public async Task<ActionResult<ServiceResponse>> DeleteProduct(ProductDto product)
+        [HttpDelete("{productId:int}")]
+        public async Task<ActionResult<ServiceResponse>> DeleteProduct(int productId)
         {
-            //Check model state
-            if (!ModelState.IsValid)
+            Product product = await productInterface.GetByIdAsync(productId);
+            if (product == null)
             {
-                return BadRequest(ModelState);
+                return NotFound($"Product {productId} is not found!");
             }
 
             //Convert to entity
-            var getEntity = ProductConversion.ToEntity(product);
-            var response = await productInterface.DeleteAsync(getEntity);
+            var response = await productInterface.DeleteAsync(product);
             return response.Success ? Ok(response) : BadRequest(response);
         }
     }
