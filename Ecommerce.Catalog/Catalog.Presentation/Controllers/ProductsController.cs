@@ -2,7 +2,6 @@
 using Catalog.Application.DTOs.Conversions;
 using Catalog.Application.Interfaces;
 using Catalog.Domain.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SharedLibrary.Responses;
 
