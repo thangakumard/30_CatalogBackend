@@ -11,8 +11,8 @@ namespace Orders.Application.Services
     {
         HttpClient _httpClient;
         ResiliencePipelineProvider<string> _resiliencePipeline;
-        IOrder _orderIntrface;
-        public OrderService(IOrder orderIntrface, 
+        IOrderRepository _orderIntrface;
+        public OrderService(IOrderRepository orderIntrface, 
             HttpClient httpClient,
             ResiliencePipelineProvider<string> resiliencePipeline
             )
@@ -55,7 +55,7 @@ namespace Orders.Application.Services
             AppUserDto appUserDto = await getUser.Content.ReadFromJsonAsync<AppUserDto>();
             return appUserDto;
         }
-        public async Task<OrderDetailDto> getOrderDetails(int orderId)
+        public async Task<OrderDetailDto> getOrderDetailsAsync(int orderId)
         {
             var order = await _orderIntrface.GetByIdAsync(orderId);
             if(order == null || order!.OrderId <= 0)
@@ -93,7 +93,7 @@ namespace Orders.Application.Services
         /// </summary>
         /// <param name="clientId"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<OrderDto>> GetOrdersByClientId(int clientId)
+        public async Task<IEnumerable<OrderDto>> GetOrdersByClientIdAsync(int clientId)
         {
             var orders = await _orderIntrface.GetOrderAsync(o => o.ClientId == clientId);
             if (!orders.Any())

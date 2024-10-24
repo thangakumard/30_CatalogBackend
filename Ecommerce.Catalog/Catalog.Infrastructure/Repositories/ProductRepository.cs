@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace Catalog.Infrastructure.Repositories
 {
-    public class ProductRepository(ProductDbContext context) : IProduct
+    public class ProductRepository(ProductDbContext context) : IProductRepository
     {
         public async Task<ServiceResponse> CreateAsync(Product entity)
         {

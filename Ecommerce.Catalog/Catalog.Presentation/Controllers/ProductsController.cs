@@ -9,7 +9,7 @@ namespace Catalog.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController(IProduct  productInterface) : ControllerBase
+    public class ProductsController(IProductRepository  productInterface) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetProducts()

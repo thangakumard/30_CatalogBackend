@@ -22,7 +22,7 @@ namespace Orders.Infrastructure.DependencyInjection
             SharedServiceContainer.AddSharedServices<OrderDbContext>(services, config, config["MySerilog:FileName"]!);
 
             //Add Dependency Injection
-            services.AddScoped<IOrder, OrderRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
             return services;
         }
         public static IApplicationBuilder UseInfrastructurePolicy(this IApplicationBuilder app)

@@ -19,7 +19,7 @@ namespace Catalog.Infrastructure.DependencyInjection
             SharedServiceContainer.AddSharedServices<ProductDbContext>(services, config, config["MySerilog:FileName"]!);
 
             //Add Dependency Injection
-            services.AddScoped<IProduct, ProductRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             return services; 
         }
 

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Orders.Domain.Entities;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Orders.Infrastructure.Data
 {

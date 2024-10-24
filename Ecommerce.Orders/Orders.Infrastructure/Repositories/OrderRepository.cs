@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace Orders.Infrastructure.Repositories
 {
-    public class OrderRepository : IOrder
+    public class OrderRepository : IOrderRepository
     {
         OrderDbContext _orderDbContext;
         public OrderRepository(OrderDbContext dbContext) {

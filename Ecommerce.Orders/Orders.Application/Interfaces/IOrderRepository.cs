@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Orders.Application.Interfaces
 {
-    public interface IOrder : IGenericInterface<Order>
+    public interface IOrderRepository : IGenericInterface<Order>
     {
         Task<IEnumerable<Order>> GetOrderAsync(Expression<Func<Order, bool>> predicate);
     }

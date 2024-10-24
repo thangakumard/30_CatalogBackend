@@ -4,8 +4,8 @@ namespace Orders.Application.Services
 {
     public interface IOrderService
     {
-        Task<IEnumerable<OrderDto>> GetOrdersByClientId(int clientId);
-        Task<OrderDetailDto> getOrderDetails(int orderId);
+        Task<IEnumerable<OrderDto>> GetOrdersByClientIdAsync(int clientId);
+        Task<OrderDetailDto> getOrderDetailsAsync(int orderId);
 
     }
 }
